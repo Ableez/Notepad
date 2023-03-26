@@ -1,0 +1,16 @@
+:root {
+  box-sizing: border-box;
+  --sidebar: calc(100% / 1.618 / 4);
+}
+
+.Sidebar {
+  width: var(--sidebar);
+  box-sizing: border-box;
+  padding: 0.6em 0.4em;
+}
+.Editor {
+  box-sizing: border-box;
+  width: calc(100% - var(--sidebar));
+}
+
+
