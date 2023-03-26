@@ -7,13 +7,12 @@ export default function App(props) {
   const [notes, setNotes] = useState(
     () => JSON.parse(localStorage.getItem("notes")) || []
   );
-
   const [currNoteId, setCurrNoteId] = useState((notes[0] && notes[0].id) || "");
+  console.log(currNoteId);
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes));
   }, [notes]);
-
-  function createNewNote(title) {
+  function createNewNote(e, title) {
     const newNote = {
       id: nanoid(),
       title: title || "Untitled",
@@ -71,7 +70,12 @@ export default function App(props) {
         </>
       ) : (
         <div className="h-full grid place-items-center justify-center">
-          <button className="bg-blue-500 p-2 rounded-lg" onClick={createNewNote}>Create New Note</button>
+          <button
+            className="bg-blue-500 p-2 rounded-lg"
+            onClick={createNewNote}
+          >
+            Create New Note
+          </button>
         </div>
       )}
     </div>

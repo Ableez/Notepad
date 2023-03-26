@@ -1,11 +1,31 @@
 import logo from "../assets/vite.svg";
 import addNote from "../assets/addNote.svg";
 export default function Sidebar(props) {
+  console.log(props.currNote());
+  const notesTitles = props.notes.map((note, index) => {
+    return (
+      <div>
+        <button
+          onClick={() => props.setCurrNoteId(note.id)}
+          className={`text-neutral-800 w-full transition-all duration-300 hover:bg-neutral-300 p-2 mb-1 ${
+            note.id === props.currNote.id
+              ? "bg-blue-500 hover:bg-blue-200"
+              : "bg-neutral-200"
+          } dark:text-neutral-200`}
+          key={note.id}
+        >
+          {note.title}
+        </button>
+      </div>
+    );
+  });
   return (
     <div className="Sidebar bg-sidebarBg dark:bg-neutral-800 ">
       <div className="logo flex text-xl">
         <img src={logo} className="w-7" alt="" />
-        <span className="font-extrabold text-neutral-700 dark:text-neutral-50 mx-2">Notepad</span>
+        <span className="font-extrabold text-neutral-700 dark:text-neutral-50 mx-2">
+          Notepad
+        </span>
       </div>
       <div className="search--bar my-2 border-b dark:border-neutral-500 border-neutral-300  py-2 w-full">
         <div class="flex items-center">
@@ -38,6 +58,7 @@ export default function Sidebar(props) {
           </div>
           <button
             type="button"
+            onClick={props.newNote}
             class="p-2.5 ml-2 text-sm font-medium transition-all duration-300 text-white bg-blue-600 rounded-lg border border-blue-600 hover:border-blue-500 focus:outline-none hover:bg-blue-500"
           >
             {" "}
@@ -45,11 +66,7 @@ export default function Sidebar(props) {
           </button>
         </div>
       </div>
-      <div className="notes--title">
-        {props.notes.map((note, index) => {
-          return <h4 key={index}>{note.title}</h4>
-        })}
-      </div>
+      <div className="notes--title">{notesTitles}</div>
     </div>
   );
 }
