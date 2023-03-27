@@ -1,22 +1,19 @@
 import logo from "../assets/vite.svg";
 import addNote from "../assets/addNote.svg";
 export default function Sidebar(props) {
-  console.log(props.currNote());
   const notesTitles = props.notes.map((note, index) => {
     return (
-      <div>
-        <button
-          onClick={() => props.setCurrNoteId(note.id)}
-          className={`text-neutral-800 w-full transition-all duration-300 hover:bg-neutral-300 p-2 mb-1 ${
-            note.id === props.currNote.id
-              ? "bg-blue-500 hover:bg-blue-200"
-              : "bg-neutral-200"
-          } dark:text-neutral-200`}
-          key={note.id}
-        >
-          {note.title}
-        </button>
-      </div>
+      <button
+        onClick={() => props.setCurrNoteId(note.id)}
+        className={`text-neutral-800 w-full text-left transition-all duration-200 hover:bg-neutral-300 p-2 mb-1 ${
+          note.id === props.currNote.id
+            ? "bg-blue-500 dark:hover:bg-blue-700 dark:bg-blue-600 hover:bg-blue-400"
+            : "bg-neutral-200 dark:text-neutral-50 dark:hover:bg-neutral-700 dark:bg-opacity-90 dark:bg-transparent"
+        } dark:text-neutral-200`}
+        key={note.id}
+      >
+        {note.title}
+      </button>
     );
   });
   return (

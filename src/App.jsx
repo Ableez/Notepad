@@ -46,7 +46,7 @@ export default function App(props) {
   function findCurrNote() {
     return (
       notes.find((note) => {
-        note.id === currNoteId;
+        return note.id === currNoteId;
       }) || notes[0]
     );
   }
@@ -56,17 +56,19 @@ export default function App(props) {
         <>
           <Sidebar
             notes={notes}
-            currNote={findCurrNote}
+            currNote={findCurrNote()}
             setCurrNoteId={setCurrNoteId}
             newNote={createNewNote}
             deleteNote={deleteNote}
           />
-          <Editor
-            currNote={findCurrNote}
-            updateNote={updateNote}
-            dark={props.dark}
-            changeTheme={props.changeTheme}
-          />
+          {currNoteId && notes.length > 0 && (
+            <Editor
+              currNote={findCurrNote()}
+              updateNote={updateNote}
+              dark={props.dark}
+              changeTheme={props.changeTheme}
+            />
+          )}
         </>
       ) : (
         <div className="h-full grid place-items-center justify-center">

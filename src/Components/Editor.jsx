@@ -4,6 +4,7 @@ import React, { useRef, useEffect, useState } from "react";
 import { Switch } from "@headlessui/react";
 import light from "../assets/light.svg";
 import dark from "../assets/dark.svg";
+import TextArea from "./TextArea";
 
 export default function Editor(props) {
   const targetRef = useRef(null);
@@ -292,13 +293,10 @@ export default function Editor(props) {
             </div>
           </div>
           <div class="pl-4 bg-transparent h-4/5 border-b border-neutral-200 dark:border-neutral-500 ">
-            <textarea
-              id="editor"
-              onChange={props.updateNote}
-              value={props.currNote.body}
-              class="block w-full resize-none text-neutral-800 dark:text-neutral-100 h-full px-0 text-sm bg-transparent border-0  focus:ring-0  dark:placeholder-gray-400"
-              placeholder="Write a note..."
-            ></textarea>
+            <TextArea
+              updateNoteEd={props.updateNote}
+              currNoteEd={props.currNote}
+            />
           </div>
           <div className="btn p-2 flex align-middle justify-end ">
             <button className="flex align-middle pl-4 justify-center p-2 bg-blue-600 rounded-xl">
