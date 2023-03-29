@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import App from "../App";
+import "flowbite-react"
+import "flowbite"
 
 export default function Roots() {
   const getTheme = localStorage.getItem("color-theme");

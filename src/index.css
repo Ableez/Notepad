@@ -2,21 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-:root{
-  background-color: #1a1a1a;
+:root {
+  background-color: none;
   box-sizing: border-box;
-  font-family: 'Cabin', sans-serif;
-  color: #F2F2F2;
+  font-family: "Cabin", sans-serif;
+  color: #f2f2f2;
   overflow: hidden;
 }
-.info{
-  font-family: 'Oxygen', sans-serif;
+body {
+  background-image: url("../src/assets/backgrounD\ \(2\).png");
+  background-size: cover;
+  background-position: center;
 }
-h1, h2, h3, h4, h5, h6{
-  font-family: 'Prompt', sans-serif;
+.info {
+  font-family: "Oxygen", sans-serif;
 }
-code{
-font-family: 'Source Code Pro', monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Prompt", sans-serif;
+}
+code {
+  font-family: "Source Code Pro", monospace;
+}
+
+.getstarted .arr {
+  transition: all 0.2s ease-in-out;
+}
+
+.getstarted:hover .arr {
+  transform: translateX(3px);
+  transform-origin: right;
 }
