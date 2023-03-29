@@ -54,8 +54,8 @@ export default function App(props) {
             Experience seamless and efficient note-taking like never before with
             our cutting-edge web application note editor.
           </p>
-          <div class="flex flex-col mb-8 w-1/5 border mx-auto lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
-            <Link to={"login"}
+          <div class="flex flex-col mb-8 w-1/5 mx-auto lg:mb-16 space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+            <Link to={"login"} >
             <a
               href="#"
               class="inline-flex getstarted justify-center w-full transition-color duration-100 border border-blue-500 items-center py-3 px-5 bg-blue-500 hover:bg-blue-400 hover:border-blue-500 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
@@ -74,6 +74,8 @@ export default function App(props) {
                 ></path>
               </svg>
             </a>
+            </Link>
+            
           </div>
         </div>
       </section>
